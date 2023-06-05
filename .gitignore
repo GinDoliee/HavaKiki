@@ -1,0 +1,9 @@
+
+*.toc
+*.pyc
+*.pyz
+*.pkg
+*.html
+*.txt
+*.manifest
+*.zip

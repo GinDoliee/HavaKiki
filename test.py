@@ -68,8 +68,7 @@ def job():
 
     httpfriends = pg.locateOnScreen('image/httpfriends.PNG',confidence = 0.6)  
     if(httpfriends != None) :
-        print("httpfriends : ", httpfriends)
-        
+        print("httpfriends : ", httpfriends)        
         pg.moveTo(httpfriends.left+500, httpfriends.top+10)    
         pg.click()
         time.sleep(1)
