@@ -4,7 +4,8 @@ import time
 
 
 index = 1
-
+scheduleIndex = 0
+cusmin = int(input("Set Routine Min : "))
 
 def job():
 
@@ -86,8 +87,13 @@ def job():
                 pg.moveTo(start.left, start.top)
                 pg.click() 
                 break     
-            else:        
+            else:
+                if(k == 4):
+                    i = nft        
                 print("Can't Start a Tour")
+
+        if(i == nft):
+            break
 
         time.sleep(1)
         oknext = pg.locateOnScreen('image/oknext.PNG',confidence = 0.8)  
@@ -182,9 +188,7 @@ def job():
                 break
             else:
                 print("allow is none ")
-
-
-    time.sleep(2)
+  
     firstx = pg.locateOnScreen('image/firstx.PNG',confidence = 0.8)  
     if(firstx != None) :
         print("firstx : ", firstx)        
@@ -205,20 +209,21 @@ def job():
         else:
             print("There is no secondx")
 
-    time.sleep(2)
-    print("Job Done")
+    global scheduleIndex
+    print("Job Done : ", scheduleIndex)
+    print("waiting for next schedule")
+    scheduleIndex += 1
 
 
 def alram():
     global index
-    print("alram : ", index * 30)
+    print("alram : ", index * 10)
     index += 1
 
-def start_job():
-   job()
-   print("waiting for next schedule")
-   schedule.every(1).hours.do(job)
-   schedule.every(30).minutes.do(alram)
+def start_job():   
+   job()   
+   schedule.every(cusmin).minutes.do(job)
+   schedule.every(10).minutes.do(alram)
 
 start_job()
 
