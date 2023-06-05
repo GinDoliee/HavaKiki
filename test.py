@@ -38,11 +38,12 @@ def job():
                 if(j == 4):
                     i = nft                      
                     break
+
         if(i == nft):
             break        
         
         j = 0
-        for j in range(7):        
+        for j in range(10):        
             time.sleep(2)            
             allow = pg.locateOnScreen('image/allow.PNG',confidence = 0.8)
             if(allow != None):
