@@ -137,9 +137,7 @@ def job():
         time.sleep(1)
         close = pg.locateOnScreen('image/close.PNG',confidence = 0.8)  
         if(close != None) :
-            print("close : ", close)            
-            pg.moveTo(close.left, close.top+200)
-            pg.click()   
+            print("close : ", close)     
             i = nft
             break
         else:
