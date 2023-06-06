@@ -47,7 +47,8 @@ def job():
             time.sleep(2)            
             allow = pg.locateOnScreen('image/allow.PNG',confidence = 0.8)
             if(allow != None):
-                print("allow : ", allow)                
+                print("allow : ", allow)    
+                time.sleep(5)            
                 pg.moveTo(allow.left, allow.top)
                 pg.click()
                 break
@@ -64,6 +65,18 @@ def job():
                 break
             else:
                 print("ok is none : ")
+
+        httpfriends = pg.locateOnScreen('image/httpfriends.PNG',confidence = 0.6)  
+        if(httpfriends != None) :
+            print("httpfriends : ", httpfriends)
+            
+            pg.moveTo(httpfriends.left+500, httpfriends.top+10)    
+            pg.click()
+            time.sleep(1)
+            pg.press('enter')        
+            time.sleep(1)
+        else:
+            print("There is no httpfriends")
                 
 
     httpfriends = pg.locateOnScreen('image/httpfriends.PNG',confidence = 0.6)  
@@ -176,12 +189,14 @@ def job():
             print("There is no complete")
 
         j =0
-        for j in range(5):        
-            time.sleep(1)            
+        for j in range(10):        
+            time.sleep(2)            
             allow = pg.locateOnScreen('image/allow.PNG',confidence = 0.8)
             if(allow != None):
-                print("allow : ", allow)                
+                print("allow : ", allow)
+                time.sleep(5)                            
                 pg.moveTo(allow.left, allow.top)
+                time.sleep(1)
                 pg.click()
                 break
             else:
