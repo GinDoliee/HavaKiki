@@ -29,7 +29,8 @@ def job():
             luggage = pg.locateOnScreen('image/findyourluggage.PNG',confidence = 0.8)
             if(luggage != None):
                 print("luggage : ", luggage)            
-                pg.moveTo(luggage.left+10, luggage.top+10)
+                pg.moveTo(luggage.left+20, luggage.top+20)
+                time.sleep(1)
                 pg.click()                            
                 break
             else:
