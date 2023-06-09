@@ -4,8 +4,10 @@ import time
 
 
 index = 1
-scheduleIndex = 0
+
+isspace = int(input("0 is world. 1 is space : "))
 cusmin = int(input("Set Routine Min : "))
+
 
 def job():
 
@@ -120,13 +122,23 @@ def job():
 
 
         time.sleep(1)
-        spacetour = pg.locateOnScreen('image/spacetour.PNG',confidence = 0.9)  
-        if(spacetour != None) :
-            print("spacetour : ", spacetour)            
-            pg.moveTo(spacetour.left, spacetour.top)
-            pg.click()   
+        if(isspace == 1):
+            spacetour = pg.locateOnScreen('image/spacetour.PNG',confidence = 0.9)  
+            if(spacetour != None) :
+                print("spacetour : ", spacetour)            
+                pg.moveTo(spacetour.left, spacetour.top)
+                pg.click()   
+            else:
+                print("There is no space tour")
         else:
-            print("There is no space tour")
+            worldtour = pg.locateOnScreen('image/worldtour.PNG',confidence = 0.9)  
+            if(worldtour != None) :
+                print("worldtour : ", worldtour)            
+                pg.moveTo(worldtour.left, worldtour.top)
+                pg.click()   
+            else:
+                print("There is no world tour")
+
 
 
         time.sleep(1)
@@ -234,10 +246,10 @@ def alram():
     print("alram : ", index * 10)
     index += 1
 
-def start_job():   
-   job()   
-   schedule.every(cusmin).minutes.do(job)
-   schedule.every(10).minutes.do(alram)
+def start_job():       
+    job()              
+    schedule.every(cusmin).minutes.do(job)
+    schedule.every(10).minutes.do(alram)
 
 start_job()
 
